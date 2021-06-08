@@ -1,0 +1,13 @@
+body {
+    background-color: #282828;
+    color: #ffffff;
+    position: relative;
+    width: 60%;
+}
+h1 {
+    color: #ffffff;
+}
+.question {
+    text-align: center;
+    color: #dddddd;
+}
