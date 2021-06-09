@@ -2,12 +2,17 @@ body {
     background-color: #282828;
     color: #ffffff;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
     width: 60%;
 }
 h1 {
     color: #ffffff;
+    text-align: center;
 }
 .question {
+    padding: 1em;
     text-align: center;
+    width: 100%;
     color: #dddddd;
 }
