@@ -10,44 +10,164 @@
 
 <body>
     <h1>Questions</h1>
+
+    <form>
+
+    <div class="question-container">
     <div class="question">
-        <div id="question-1">Did you get a good […] for your last essay?</div>
-        <input name="question-1" type="radio">rank 
-        <input name="question-1" type="radio">total 
-        <input name="question-1" type="radio">grade
-        <input name="question-1" type="radio">sign
+        <div class="gap">
+            Did you get a good […] for your last essay?
+        </div>
+        <div class="fill">
+            <div class="choice">
+                <input name="question-1" type="radio" id="A">
+                rank
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-1" type="radio" id="B">
+                total
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-1" type="radio" id="C">
+                grade
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-1" type="radio" id="D">
+                sign
+                </input>
+            </div>
+        </div>
+    </div>
     </div>
 
+    <div class="question-container">
     <div class="question">
-        <div id="question-2">He can't come. He […] on a project.</div>
-        <input name="question-2" type="radio">works
-        <input name="question-2" type="radio">is working
-        <input name="question-2" type="radio">working
-        <input name="question-2" type="radio">worked
+        <div class="gap">
+             He can't come. He […] on a project.
+        </div>
+        <div class="fill">
+            <div class="choice">
+                <input name="question-2" type="radio" id="A">
+                works
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-2" type="radio" id="B">
+                is working
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-2" type="radio" id="C">
+                working
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-2" type="radio" id="D">
+                worked
+                </input>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="question-container">
+    <div class="question">
+        <div class="gap">
+            They always […] to college by car.
+        </div>
+        <div class="fill">
+            <div class="choice">
+                <input name="question-3" type="radio" id="A">
+                travel
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-3" type="radio" id="B">
+                are travelling
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-3" type="radio" id="C">
+                travelling
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-3" type="radio" id="D">
+                have travelled
+                </input>
+            </div>
+        </div>
+    </div>
     </div>
 
+    <div class="question-container">
     <div class="question">
-        <div id="question-3">They always […] to college by car.</div>
-        <input name="question-2" type="radio">travel
-        <input name="question-2" type="radio">are travelling
-        <input name="question-2" type="radio">travelling
-        <input name="question-2" type="radio">have travelled
+        <div class="gap">
+            I'm sorry, you […] change your course.
+        </div>
+        <div class="fill">
+            <div class="choice">
+                <input name="question-4" type="radio" id="A">
+                notable
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-4" type="radio" id="B">
+                aren't possible to
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-4" type="radio" id="C">
+                can't
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-4" type="radio" id="D">
+                not allowed
+                </input>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <div class="question-container">
+    <div class="question">
+        <div class="gap">
+        I […] after my mum. We've got the same eyes and hair.
+        </div>
+        <div class="fill">
+            <div class="choice">
+                <input name="question-5" type="radio" id="A">
+                look
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-5" type="radio" id="B">
+                come
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-5" type="radio" id="C">
+                get
+                </input>
+            </div>
+            <div class="choice">
+                <input name="question-5" type="radio" id="D">
+                take
+                </input>
+            </div>
+        </div>
+    </div>
     </div>
 
-    <div class="question">
-        <div id="question-4">I'm sorry, you […] change your course.</div>
-        <input name="question-2" type="radio">notable
-        <input name="question-2" type="radio">aren't possible to
-        <input name="question-2" type="radio">can't
-        <input name="question-2" type="radio">not allowed
+    <div class="submit">
+        <input type="submit" value="Submit your answers" action="/submit.py">
     </div>
 
-    <div class="question">
-        <div id="question-5">I […] after my mum. We've got the same eyes and hair.</div>
-        <input name="question-2" type="radio">look
-        <input name="question-2" type="radio">come
-        <input name="question-2" type="radio">get
-        <input name="question-2" type="radio">take
-    </div>
+    </form>
 </body>
 </html>
