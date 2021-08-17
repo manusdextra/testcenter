@@ -10,159 +10,24 @@
 
 <body>
     <h1>Questions</h1>
-
-    <form>
-
+    {% for element in material.Questions %}
     <div class="question-container">
-    <div class="question">
+        <div class="question" id="question-{{ i }}">
         <div class="gap">
-            Did you get a good <span class="missing-word">[fill in the gap]</span> for your last essay?
+            {{ element.Question }}
         </div>
+        {% for option in element.OtherAnswers %}
         <div class="fill">
             <div class="choice">
                 <input name="question-1" type="radio" id="A">
-                rank
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-1" type="radio" id="B">
-                total
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-1" type="radio" id="C">
-                grade
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-1" type="radio" id="D">
-                sign
+                {{ option }}
                 </input>
             </div>
         </div>
+        {% endfor %}
     </div>
     </div>
-
-    <div class="question-container">
-    <div class="question">
-        <div class="gap">
-             He can't come. He <span class="missing-word">[fill in the gap]</span> on a project.
-        </div>
-        <div class="fill">
-            <div class="choice">
-                <input name="question-2" type="radio" id="A">
-                works
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-2" type="radio" id="B">
-                is working
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-2" type="radio" id="C">
-                working
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-2" type="radio" id="D">
-                worked
-                </input>
-            </div>
-        </div>
-    </div>
-    </div>
-    
-    <div class="question-container">
-    <div class="question">
-        <div class="gap">
-            They always <span class="missing-word">[fill in the gap]</span> to college by car.
-        </div>
-        <div class="fill">
-            <div class="choice">
-                <input name="question-3" type="radio" id="A">
-                travel
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-3" type="radio" id="B">
-                are travelling
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-3" type="radio" id="C">
-                travelling
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-3" type="radio" id="D">
-                have travelled
-                </input>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="question-container">
-    <div class="question">
-        <div class="gap">
-            I'm sorry, you <span class="missing-word">[fill in the gap]</span> change your course.
-        </div>
-        <div class="fill">
-            <div class="choice">
-                <input name="question-4" type="radio" id="A">
-                notable
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-4" type="radio" id="B">
-                aren't possible to
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-4" type="radio" id="C">
-                can't
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-4" type="radio" id="D">
-                not allowed
-                </input>
-            </div>
-        </div>
-    </div>
-    </div>
-    
-    
-    <div class="question-container">
-    <div class="question">
-        <div class="gap">
-        I <span class="missing-word">[fill in the gap]</span> after my mum. We've got the same eyes and hair.
-        </div>
-        <div class="fill">
-            <div class="choice">
-                <input name="question-5" type="radio" id="A">
-                look
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-5" type="radio" id="B">
-                come
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-5" type="radio" id="C">
-                get
-                </input>
-            </div>
-            <div class="choice">
-                <input name="question-5" type="radio" id="D">
-                take
-                </input>
-            </div>
-        </div>
-    </div>
-    </div>
+    {% endfor %}
 
     <div class="submit">
         <input type="submit" value="Submit your answers" formmethod="POST" formaction="form">
