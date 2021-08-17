@@ -45,12 +45,18 @@ form {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.gap {
     text-align: center;
 }
 
 .missing-word {
-    background-color: var(--whiteish);
+    background-color: var(--darkblack);
+    color: transparent;
+    display: inline;
     width: 4em;
+    height: 2;
 }
 
 .fill {
