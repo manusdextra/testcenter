@@ -1,24 +1,24 @@
 {
     "Questions": [{
         "Question": "Did you get a good […] for your last essay?",
-        "Correct Answer": "grade",
-        "Other Answers": ["rank", "total", "sign"]
+        "CorrectAnswer": "grade",
+        "OtherAnswers": ["rank", "total", "sign"]
     }, {
         "Question": "He can't come. He […] on a project",
-        "Correct Answer": "is working",
-        "Other Answers": ["works", "working", "worked"]
+        "CorrectAnswer": "is working",
+        "OtherAnswers": ["works", "working", "worked"]
     }, {
         "Question": "They always […] to college by car.",
-        "Correct Answer": "travel",
-        "Other Answers": ["are travelling", "travelling", "have travelled"]
+        "CorrectAnswer": "travel",
+        "OtherAnswers": ["are travelling", "travelling", "have travelled"]
     }, {
         "Question": "I'm sorry, you […] change your course",
-        "Correct Answer": "can't",
-        "Other Answers": ["notable", "aren't possible to", "not allowed"]
+        "CorrectAnswer": "can't",
+        "OtherAnswers": ["notable", "aren't possible to", "not allowed"]
     }, {
         "Question": "I […] after my mum. We've got the same eyes and hair.",
-        "Correct Answer": "take",
-        "Other Answers": ["look", "come", "get"]
+        "CorrectAnswer": "take",
+        "OtherAnswers": ["look", "come", "get"]
     }]
 }
 
