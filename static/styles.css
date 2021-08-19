@@ -11,21 +11,19 @@
 body {
     background-color: var(--darkblack);
     color: var(--whiteish);
-    max-width: 60%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
-h1, a {
+h1, a, label {
     color: var(--brightwhite);
-    text-decoration: none;
     text-align: center;
 }
 
 .question {
     background-color: var(--lightblack);
-    border-style: solid none;
-    border-width: 1px 0;
+    margin: 1em 0;
 }
 
 .gap {
@@ -38,37 +36,52 @@ h1, a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 5px;
     grid-auto-flow: row;
 }
 
-.choice {
-    background-color: var(--blackish);
-    text-align: center;
+@media only screen and (max-width: 600px) {
+    /* rearrange buttons on smaller screens */
+    body {
+        width: auto;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .fill {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+        
+input[type=radio] {
+    /* make the layout ignore the space for the button and use label instead */
+    display: none;
+    /* hide radio button */
+    appearance: none;
+    opacity: 0;
+}
+
+label {
+    background-color:var(--darkgray);
     padding: 1em;
 }
 
-.choice input {
-    /* hide radio button */
-    opacity: 0;
-    position: absolute;
+label:hover{
+    background-color:var(--grayish);
 }
 
-.choice input:checked {
+input[type=radio]:checked + label{
     background-color:var(--whiteish);
-}
-
-.choice:hover {
-    background-color:var(--darkgray);
+    color:var(--blackish);
 }
 
 input[type=submit] {
     background-color:var(--blackish);
     color:var(--brightwhite);
-    border-style: solid none;
     padding: 2em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%
+    width: 100%;
+    border: 0;
 }
 input[type=submit]:hover {
     background-color:var(--darkgray);
