@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Questions</h1>
+    <form>
     {% for element in material.Questions %}
     <div class="question" id="q{{material.Questions.index(element)}}">
         <div class="gap" id="q{{material.Questions.index(element)}}gap">
@@ -16,15 +17,14 @@
         </div>
         <div class="fill" id="q{{material.Questions.index(element)}}fill">
         {% for option in element.OtherAnswers %}
-            <div class="choice" id="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">
-                <input name="{{option}}" type="radio" value="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">
-                {{ option }}
-            </div>
+        <input name="q{{material.Questions.index(element)}}" type="radio" id="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}" value="{{ option }}"><label for="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">{{ option }}</label> 
         {% endfor %}
         </div>
+    </div>
     {% endfor %}
     <div class="submit">
         <input type="submit" value="Submit your answers" formmethod="POST" formaction="form">
     </div>
+    </form>
 </body>
 </html>
