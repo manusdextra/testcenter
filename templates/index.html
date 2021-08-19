@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="Placement Test" />
 </head>
-
 <body>
     <h1>Questions</h1>
     {% for element in material.Questions %}
@@ -18,14 +17,12 @@
         <div class="fill" id="q{{material.Questions.index(element)}}fill">
         {% for option in element.OtherAnswers %}
             <div class="choice" id="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">
-                <a href=# id="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">
+                <input name="{{option}}" type="radio" value="q{{material.Questions.index(element)}}opt{{element.OtherAnswers.index(option)}}">
                 {{ option }}
-                </a>
             </div>
         {% endfor %}
         </div>
     {% endfor %}
-
     <div class="submit">
         <input type="submit" value="Submit your answers" formmethod="POST" formaction="form">
     </div>
