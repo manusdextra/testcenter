@@ -17,7 +17,10 @@ def submit():
     answers = dict()
     if request.method == "POST":
         for i in range(len(material.get("Questions"))):
-            answers.update({f"q{i}answer": (request.form[f"q{i}"])})
+            try:
+                answers.update({f"q{i}answer": (request.form[f"q{i}"])})
+            except KeyError:
+                answers.update({f"q{i}answer": None})
         with open('answers.json', 'w') as output:
             json.dump(answers, output)
         return "Thanks for submitting."
