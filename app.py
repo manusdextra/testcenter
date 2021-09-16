@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
-import json
 from flask import Flask, render_template, request
+import json
 
 app = Flask(__name__)
 material = json.load(open('questions.json', 'r'))
@@ -9,10 +9,18 @@ material = json.load(open('questions.json', 'r'))
 
 @app.route("/")
 def home():
-    return render_template("index.html", material=material)
+    return render_template("index.html",
+                           title="Home")
 
 
-@app.route("/form", methods=["POST", "GET"])
+@app.route("/placementtest")
+def placementtest():
+    return render_template("placementtest.html",
+                           material=material,
+                           title=material["SectionTitle"])
+
+
+@app.route("/submit", methods=["POST", "GET"])
 def submit():
     answers = dict()
     if request.method == "POST":
