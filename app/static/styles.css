@@ -11,9 +11,30 @@
 body {
     background-color: var(--darkblack);
     color: var(--whiteish);
+    top: 0px;
     width: 80%;
+    margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
+}
+
+.navbar {
+    background-color: var(--darkgray);
+    box-shadow: 0 5px 2em rgba(0,0,0,0.4);
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.navbar li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 2em;
 }
 
 h1, a, label {
