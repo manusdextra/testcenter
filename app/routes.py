@@ -1,9 +1,7 @@
-#! /usr/bin/env python3
-
 from flask import Flask, render_template, request
+from app import app
 import json
 
-app = Flask(__name__)
 material = json.load(open('questions.json', 'r'))
 
 
@@ -34,7 +32,3 @@ def submit():
         return "Thanks for submitting."
     else:
         return "What do you want?"
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
