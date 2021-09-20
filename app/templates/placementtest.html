@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>{{ material.SectionTitle }}</h1>
-<form>
+<form action="" method="post">
 {% for element in material.Questions %}
 <div class="block" id="q{{material.Questions.index(element)}}">
     <div class="text" id="q{{material.Questions.index(element)}}gap">
@@ -16,7 +16,7 @@
 </div>
 {% endfor %}
 <div class="submit">
-    <input type="submit" value="Submit your answers" formmethod="POST" formaction="/submit">
+    <input type="submit" value="Submit your answers">
 </div>
 </form>
 {% endblock %}
