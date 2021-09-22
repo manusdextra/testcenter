@@ -16,11 +16,22 @@
 <body>
     <nav class="navbar">
         <ul role="list">
-            <li><a href="/">Home</a></li>
-            <li><a href="/placementtest">Placement Test</a></li>
-            <li><a href=#>Login</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('placementtest') }}">Placement Test</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
         </ul>
     </nav>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="block">
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
 </body>
 </html>
