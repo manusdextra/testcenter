@@ -4,7 +4,11 @@
 <h1>Contents</h1>
 <div class="block">
     <div class="text">
-<a href="/placementtest">Placement Test</a>
+        {% if current_user.is_anonymous %}
+        Hello! Please log in.
+        {% else %}
+        Hi, {{ current_user.username }}!
+        {% endif %}
     </div>
 </div>
 {% endblock %}

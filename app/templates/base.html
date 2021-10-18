@@ -18,7 +18,11 @@
         <ul role="list">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('placementtest') }}">Placement Test</a></li>
+            {% if current_user.is_anonymous %}
             <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% else %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
         </ul>
     </nav>
     {% with messages = get_flashed_messages() %}

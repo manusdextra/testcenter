@@ -18,6 +18,13 @@
         {{ form.remember_me(class="login") }}
         {{ form.remember_me.label(class="login") }}
         {{ form.submit(class="login") }}
-    </div>
     </form>
+    </div>
+    <div class="block", style="width: 100%, position: absolute">
+    <ul class="messages">
+        <li>
+            New User? <a href="{{ url_for('register') }}">Click to Register!</a>
+        </li>
+    </ul>
+    </div>
 {% endblock %}

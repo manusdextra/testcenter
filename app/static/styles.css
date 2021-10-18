@@ -19,6 +19,11 @@ body {
     margin-right: auto;
 }
 
+a {
+    text-decoration: none;
+    color: var(--brightwhite);
+}
+
 form {
     box-sizing: border-box;
     padding: 0;
@@ -28,7 +33,16 @@ form {
     text-align: center;
 }
 
-h1, a, label {
+.formbutton {
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1, label {
     color: var(--brightwhite);
     text-decoration: none;
     text-align: center;
@@ -60,6 +74,7 @@ h1, a, label {
 
 .block {
     background-color: var(--darkgray);
+    box-sizing: border-box;
     display: flex;
     flex-flow: column;
     width: 100%;

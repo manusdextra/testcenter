@@ -1,8 +1,9 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from app import db
+from app import db, login
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     teacher = db.Column(db.Boolean, default=False)
@@ -22,7 +23,7 @@ class User(db.Model):
 class Exam(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    questions = db.relationship('Question', backref='exam', lazy=True)
+    questions = db.relationship('Question', backref='exampaper', lazy=True)
 
     def __repr__(self):
         return '<Exam {}>'.format(self.name)
@@ -30,10 +31,12 @@ class Exam(db.Model):
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    exam_id = db.Column(db.Integer, db.ForeignKey('exam.id'),
-                        nullable=False)
+    exam = db.Column(
+        db.Integer,
+        db.ForeignKey('exam.id'),
+        nullable=False)
     prompt = db.Column(db.Text)
-    answers = db.relationship('Answer', backref='question', lazy=True)
+    answers = db.relationship('Answer', backref='questionnumber', lazy=True)
 
     def __repr__(self):
         return '<Question {}>'.format(self.prompt)
@@ -48,3 +51,8 @@ class Answer(db.Model):
 
     def __repr__(self):
         return '<Answer {}>'.format(self.body)
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
