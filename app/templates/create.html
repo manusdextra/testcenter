@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create a new exam</h1>
+    <div class="block">
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.examname.label(class="login") }}
+        {{ form.examname(size=32, class="login") }}
+        {% for error in form.examname.errors %}
+        <span class="signal">[{{error}}]</span>
+        {% endfor %}
+        {{ form.totalpapers.label(class="login") }}
+        {{ form.totalpapers(size=32, class="login") }}
+        {% for error in form.totalpapers.errors %}
+        <span class="signal">[{{error}}]</span>
+        {% endfor %}
+        {{ form.totalquestions.label(class="login") }}
+        {{ form.totalquestions(size=32, class="login") }}
+        {% for error in form.totalquestions.errors %}
+        <span class="signal">[{{error}}]</span>
+        {% endfor %}
+    </form>
+    </div>
+{% endblock %}

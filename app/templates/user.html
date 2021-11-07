@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Tasks for {{ user.username }}</h1>
+{% for exam in exams %}
+<div class="block">
+    <div class="text">
+        <a href={{ url_for('placementtest')}}>{{ exam.title }}</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
