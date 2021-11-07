@@ -17,26 +17,53 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        if self.teacher:
+            return '<Teacher {}>'.format(self.username)
+        return '<Student {}>'.format(self.username)
 
 
 class Exam(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    questions = db.relationship('Question', backref='exampaper', lazy=True)
+    level = db.Column(db.String(64))
+    papers = db.relationship('Paper', backref='exam', lazy=True)
 
     def __repr__(self):
         return '<Exam {}>'.format(self.name)
 
 
+class Paper(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    exam_id = db.Column(
+            db.Integer,
+            db.ForeignKey('exam.id'),
+            nullable=False)
+    exercises = db.relationship('Exercise', backref='paper', lazy=True)
+
+    def __repr__(self):
+        return '<Paper {}>'.format(self.name)
+
+
+class Exercise(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    paper_id = db.Column(
+            db.Integer,
+            db.ForeignKey('paper.id'),
+            nullable=False)
+    material = db.Column(db.Text)   # What about Listening?
+    questions = db.relationship('Question', backref='exercise', lazy=True)
+
+
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    exam = db.Column(
+    exercise_id = db.Column(
         db.Integer,
-        db.ForeignKey('exam.id'),
+        db.ForeignKey('exercise.id'),
         nullable=False)
     prompt = db.Column(db.Text)
-    answers = db.relationship('Answer', backref='questionnumber', lazy=True)
+    answers = db.relationship('Answer', backref='question', lazy=True)
 
     def __repr__(self):
         return '<Question {}>'.format(self.prompt)
@@ -44,8 +71,10 @@ class Question(db.Model):
 
 class Answer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    question_id = db.Column(db.Integer, db.ForeignKey('question.id'),
-                            nullable=False)
+    question_id = db.Column(
+            db.Integer,
+            db.ForeignKey('question.id'),
+            nullable=False)
     body = db.Column(db.String(32), unique=True)
     correct = db.Column(db.Boolean, default=False)
 

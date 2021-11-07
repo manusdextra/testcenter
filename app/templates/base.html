@@ -8,7 +8,7 @@
         Test Center
         {% endif %}
     </title>
-    <link rel="stylesheet" type="text/css" href="static/styles.css" title="Default" />
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" title="Default" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="Placement Test" />
@@ -17,7 +17,11 @@
     <nav class="navbar">
         <ul role="list">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('placementtest') }}">Placement Test</a></li>
+            {% if current_user.teacher %}
+            <li>Teacher's Lounge</li>
+            {% elif not current_user.teacher %}
+            <li><a href="{{url_for('user', username=current_user.username) }}">Tasks</a>
+            {% endif %}
             {% if current_user.is_anonymous %}
             <li><a href="{{ url_for('login') }}">Login</a></li>
             {% else %}

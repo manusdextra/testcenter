@@ -2,7 +2,7 @@ from flask import render_template, request, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, CreationForm
 from app.models import User
 import json
 
@@ -74,3 +74,25 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/create', methods=['GET', 'POST'])
+def create():
+    if current_user.teacher:
+        form = CreationForm()
+        return render_template(
+                'create.html',
+                title='Create a new exam',
+                form=form)
+    flash('This is for teachers only!')
+    return redirect(url_for('home'))
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    exams = [
+            {"title": "placement test"}
+    ]
+    return render_template('user.html', user=user, exams=exams)
