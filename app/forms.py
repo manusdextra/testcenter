@@ -40,7 +40,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 
-class ExamForm(FlaskForm):
+class CreationForm(FlaskForm):
     examname = StringField(
         'Exam Name',
         validators=[DataRequired()])
