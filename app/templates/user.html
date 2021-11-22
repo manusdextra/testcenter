@@ -2,11 +2,17 @@
 
 {% block content %}
 <h1>Tasks for {{ user.username }}</h1>
-{% for exam in exams %}
 <div class="block">
-    <div class="text">
-        <a href={{ url_for('placementtest')}}>{{ exam.title }}</a>
-    </div>
+    {% for exam in exams %}
+    <button>
+        <a class="button">{{ exam.id }} {{ exam.name }}</a>
+    </button>
+    {% endfor %}
+    <button>
+        <a class="button" href={{ url_for('placementtest')}}>Placement Test</a>
+    </button>
+    <button>
+        <a class="button" href={{ url_for('create')}}>Create new exam</a>
+    </button>
 </div>
-{% endfor %}
 {% endblock %}

@@ -5,21 +5,19 @@
     <div class="block">
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        {{ form.examname.label(class="login") }}
+        {{ form.examname.label(class="block") }}
         {{ form.examname(size=32, class="login") }}
         {% for error in form.examname.errors %}
         <span class="signal">[{{error}}]</span>
         {% endfor %}
-        {{ form.totalpapers.label(class="login") }}
+        {{ form.totalpapers.label(class="block") }}
         {{ form.totalpapers(size=32, class="login") }}
         {% for error in form.totalpapers.errors %}
         <span class="signal">[{{error}}]</span>
         {% endfor %}
-        {{ form.totalquestions.label(class="login") }}
-        {{ form.totalquestions(size=32, class="login") }}
-        {% for error in form.totalquestions.errors %}
-        <span class="signal">[{{error}}]</span>
-        {% endfor %}
-    </form>
     </div>
+    <div class="button">
+    {{ form.submit(class="button", value="Continue") }}
+    </div>
+    </form>
 {% endblock %}

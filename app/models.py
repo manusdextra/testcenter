@@ -26,6 +26,7 @@ class Exam(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     level = db.Column(db.String(64))
+    totalpapers = db.Column(db.Integer)
     papers = db.relationship('Paper', backref='exam', lazy=True)
 
     def __repr__(self):

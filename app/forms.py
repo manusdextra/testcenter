@@ -50,7 +50,4 @@ class CreationForm(FlaskForm):
     totalpapers = IntegerField(
         'Number of Papers',
         validators=[DataRequired()])
-    totalquestions = IntegerField(
-        'Number of Questions',
-        validators=[DataRequired()])
     submit = SubmitField('Publish')
