@@ -3,22 +3,30 @@
 {% block content %}
     <h1>Log In</h1>
     <div class="block">
-        <form action="" method="post" novalidate>
+        <form action="" method="post" id="login" novalidate>
             {{ form.hidden_tag() }}
-            {{ form.username.label(class="block") }}
+            <div class="formgrid">
+            {{ form.username.label() }}
             {{ form.username(size=32, class="login") }}
             {% for error in form.username.errors %}
             <span class="signal">[{{error}}]</span>
             {% endfor %}
-            {{ form.password.label(class="block") }}
+            </div>
+            <div class="formgrid">
+            {{ form.password.label() }}
             {{ form.password(size=32, class="login") }}
             {% for error in form.password.errors %}
             <span class="signal">[{{error}}]</span>
             {% endfor %}
-            {{ form.remember_me(class="block") }}
-            {{ form.remember_me.label(class="login", style="border-color: var(--grayish)") }}
+            </div>
+            <div class="formgrid">
+            {{ form.remember_me() }}
+            {{ form.remember_me.label(style="border-color: var(--grayish)") }}
             {{ form.submit(class="login") }}
+            </div>
         </form>
+    <div class="block">
+    </div>
         <button> 
             <a href="{{ url_for('register')}}">New User? Click to Register!</a>
         </button>

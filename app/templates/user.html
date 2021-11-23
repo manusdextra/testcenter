@@ -8,9 +8,13 @@
         <a class="button">{{ exam.id }} {{ exam.name }}</a>
     </button>
     {% endfor %}
+</div>
+<div class="block">
     <button>
         <a class="button" href={{ url_for('placementtest')}}>Placement Test</a>
     </button>
+</div>
+<div class="block">
     <button>
         <a class="button" href={{ url_for('create')}}>Create new exam</a>
     </button>

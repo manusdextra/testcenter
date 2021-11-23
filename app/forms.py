@@ -25,10 +25,10 @@ class RegistrationForm(FlaskForm):
         'Password',
         validators=[DataRequired()])
     password2 = PasswordField(
-        'Repeat Password',
+        'Password (x2)',
         validators=[DataRequired(), EqualTo('password')])
     teacher = BooleanField(
-            'Teacher',
+            'Teacher?',
             default=False)
     submit = SubmitField('Register')
 

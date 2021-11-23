@@ -9,11 +9,15 @@
     --signal: #ff0000;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--darkblack);
     color: var(--whiteish);
     top: 0px;
-    width: 80%;
+    width: 90vw;
     margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
@@ -24,23 +28,17 @@ body {
 a {
     text-decoration: none;
     color: var(--brightwhite);
-}
-
-form {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 0 3em 0;
+    display: block;
 }
 
 button {
     appearance: none;
-    box-sizing: content-box;
     border: solid var(--blackish) 0px;
     background-color: var(--darkgray);
     color: var(--whiteish);
     padding: 2em 0;
+    height: 100%;
+    width: 100%;
 }
 
 button:hover{
@@ -82,21 +80,33 @@ h1, label {
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
+    margin: 0.2em 0;
 }
 
 /* gap fill exercise */
 
 .text {
+    width: 100%;
     padding: 2em;
     text-align: center;
 }
 
 .answer {
     list-style-type: none;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    grid-auto-flow: row;
+}
+
+.formgrid {
+    width: inherit;
+    display: grid;
     gap: 5px;
     grid-auto-flow: row;
 }
@@ -106,7 +116,8 @@ label.login {
 }
 
 input {
-    width: 90%;
+    width: inherit;
+    margin: 0.2em 0;
 }
 
 input.login {
@@ -114,7 +125,6 @@ input.login {
     color: var(--whiteish);
     border: solid var(--blackish) 5px;
     padding: 1em 0; 
-    width: 90%;
     text-align: center
 }
 
@@ -150,17 +160,14 @@ label {
     /* background-color:var(--darkgray); */
     padding: 2em;
     cursor: pointer;
-    width: inherit;
+    display: block;
 }
 
 input[type=checkbox]#remember_me + label {
     border: solid var(--blackish) 5px;
-    width: 90%;
-    margin: 3em 0 0 0;
-    padding: 1em 0;
 }
 
-label.button:hover{
+label:hover{
     background-color:var(--grayish);
 }
 
@@ -189,13 +196,26 @@ span.signal {
     /* rearrange buttons on smaller screens */
     body {
         width: auto;
-        margin-left: 1em;
-        margin-right: 1em;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .answer {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
+    }
+
+    .formgrid {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+
+    .formgrid input {
+        grid-column: 2 / 5;
+    }
+
+    .formgrid label {
+        grid-column: 1 / 2;
     }
 }
 
@@ -203,12 +223,48 @@ span.signal {
     /* rearrange buttons on smaller screens */
     body {
         width: auto;
-        margin-left: 15%;
-        margin-right: 15%;
+        margin-left: calc(20vw + 5%);
+        margin-right: 5%;
     }
 
     .answer {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr;
     }
+
+    .formgrid {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .formgrid input {
+        grid-column: 2 / 5;
+    }
+
+    .formgrid label {
+        grid-column: 1 / 2;
+    }
+
+    .navbar {
+        box-shadow: 0 5px 2em rgba(0,0,0.4,0);
+        position: fixed;
+        height: 100%;
+        width: 20vw;
+        top: 0px;
+        bottom: 0px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    .navbar ul {
+        padding: 0;
+    }
+
+    .navbar li {
+        list-style: none;
+        display: block;
+        padding: 1em 2em;
+    }
+
 }
